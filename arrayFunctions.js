@@ -8,8 +8,12 @@
  * isArrayLengthOdd([1, 2, 3]) -> true
  * isArrayLengthOdd([1, 2, 3, 4]) -> flase
  */
+function isOdd(n) {
+  return n % 2 !== 0;
+}
+
 function isArrayLengthOdd(numbers) {
-  // Your code here
+  return isOdd(numbers.length);
 }
 
 /**
@@ -23,7 +27,7 @@ function isArrayLengthOdd(numbers) {
  * isArrayLengthEven([1, 2, 3, 4]) -> true
  */
 function isArrayLengthEven(numbers) {
-  // Your code here
+  return !isOdd(numbers.length);
 }
 
 /**
@@ -36,6 +40,7 @@ function isArrayLengthEven(numbers) {
  */
 function addLailaToArray(instructors) {
   // Your code here
+  return [...instructors, 'Laila'];
 }
 
 /**
@@ -48,6 +53,7 @@ function addLailaToArray(instructors) {
  */
 function eliminateTeam(teams) {
   // Your code here
+  return teams.pop();
 }
 
 /**
@@ -62,6 +68,10 @@ function eliminateTeam(teams) {
  */
 function secondHalfOfArrayIfItIsEven(fruits) {
   // Your code here
+  const newList = fruits.slice(fruits.length / 2, fruits.length);
+  const isLengthOdd = isOdd(newList.length);
+  if (isLengthOdd) return [];
+  return newList;
 }
 
 /**
@@ -79,8 +89,11 @@ function secondHalfOfArrayIfItIsEven(fruits) {
  * - Use string method .slice()
  */
 function youGottaCalmDown(shout) {
-  // Your code here
+  const ind = shout.indexOf('!');
+  return shout.slice(0, ind + 1);
 }
+
+youGottaCalmDown('HI!!!!!!!!!!');
 
 module.exports = {
   isArrayLengthOdd,
